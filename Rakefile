@@ -24,6 +24,12 @@ end
 
 desc 'produce tiles'
 task :tiles do
+  DESIGN.each {|design|
+    Dir.glob(design['glob']).sort.each {|path|
+      next unless /(SHP|shp)$/.match path
+      p path
+    }
+  }
 end
 
 desc 'generate style.json'
