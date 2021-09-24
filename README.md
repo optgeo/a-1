@@ -1,5 +1,5 @@
 # a-1
-Antarctic prototype 1 - part of 63ants
+Antarctic prototype 1 - part of [63ants](https://github.com/optgeo/63ants)
 
 # Demo
 To be released on https://optgeo.github.io/a-1
