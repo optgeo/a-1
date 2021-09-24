@@ -12,6 +12,16 @@ curl -o docs/#{url.split('/')[-1]} #{url}
   }
 end
 
+desc 'download data'
+task :download do
+  File.foreach(URLS_PATH) {|l|
+    url = l.strip
+    path = "#{SRC_DIR}/#{url.split('/')[-1]}"
+    sh "curl -o #{path} #{url}" unless File.exist?(path)
+    sh "unar -o #{SRC_DIR} #{path}"
+  }
+end
+
 desc 'produce tiles'
 task :tiles do
 end
