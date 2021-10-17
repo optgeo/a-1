@@ -16,3 +16,4 @@ layers:
   - !!inc/file layers/area.yml
   - !!inc/file layers/coastline.yml
   - !!inc/file layers/contour.yml
+  - !!inc/file layers/building.yml

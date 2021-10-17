@@ -118,6 +118,15 @@
           0.7
         ]
       }
+    },
+    {
+      "id": "building",
+      "type": "fill",
+      "source": "v",
+      "source-layer": "building",
+      "paint": {
+        "fill-color": "rgb(208, 151, 94)"
+      }
     }
   ]
 }
