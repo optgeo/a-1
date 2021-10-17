@@ -24,16 +24,37 @@ end
 
 desc 'produce tiles'
 task :tiles do
+  cmd = '('
   DESIGN.each {|design|
-    Dir.glob(design['glob']).sort.each {|path|
-      next unless /(SHP|shp)$/.match path
-      p path
+    files = Dir.glob(design['glob']).sort.select {|path|
+      /(SHP|shp)$/.match path
     }
+    cmd += <<-EOS
+parallel --line-buffer --jobs=#{JOBS} \
+'ogr2ogr -f GeoJSONSeq /vsistdout/ {} -dim 2 \
+-oo ENCODING=CP932' ::: \
+#{files.join(' ')} | \
+MINZOOM=#{design['minzoom']} MAXZOOM=#{design['maxzoom']} \
+ruby filter.rb ; 
+    EOS
+    cmd = cmd.strip
   }
+  cmd += ') |'
+  cmd += <<-EOS
+tippecanoe --force --output #{MBTILES_PATH} \
+--maximum-zoom=#{MAXZOOM} --minimum-zoom=#{MINZOOM} \
+--no-tile-size-limit --no-feature-limit; \
+tile-join --force --output-to-directory=docs/zxy \
+--no-tile-size-limit --no-tile-compression \
+--maximum-zoom=#{MAXZOOM} --minimum-zoom=#{MINZOOM} \
+#{MBTILES_PATH}
+  EOS
+  sh cmd
 end
 
 desc 'generate style.json'
 task :style do
+  sh "charites build style/style.yml docs/style.json"
 end
 
 desc 'host the site locally'

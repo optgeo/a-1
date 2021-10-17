@@ -1,0 +1,123 @@
+{
+  "version": 8,
+  "center": [
+    39.507,
+    -69.021
+  ],
+  "zoom": 12,
+  "sources": {
+    "v": {
+      "type": "vector",
+      "attribution": "国土地理院",
+      "minzoom": 8,
+      "maxzoom": 11,
+      "tiles": [
+        "https://x.optgeo.org/a-1/zxy/{z}/{x}/{y}.pbf"
+      ]
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "rgb(161, 229, 252)"
+      }
+    },
+    {
+      "id": "area",
+      "type": "fill",
+      "source": "v",
+      "source-layer": "area",
+      "paint": {
+        "fill-color": [
+          "match",
+          [
+            "get",
+            "図式コード"
+          ],
+          9501,
+          "rgb(214, 216, 212)",
+          9601,
+          "rgb(205, 230, 253)",
+          "rgb(255, 0, 0)"
+        ],
+        "fill-opacity": [
+          "interpolate",
+          [
+            "exponential",
+            2
+          ],
+          [
+            "zoom"
+          ],
+          8,
+          0,
+          12,
+          1
+        ]
+      }
+    },
+    {
+      "id": "coastline",
+      "type": "line",
+      "source": "v",
+      "source-layer": "coastline",
+      "paint": {
+        "line-color": "rgb(78, 137, 240)",
+        "line-opacity": [
+          "interpolate",
+          [
+            "exponential",
+            2
+          ],
+          [
+            "zoom"
+          ],
+          8,
+          0,
+          12,
+          1
+        ]
+      }
+    },
+    {
+      "id": "contour",
+      "type": "line",
+      "source": "v",
+      "source-layer": "contour",
+      "paint": {
+        "line-color": "rgb(200, 160, 60)",
+        "line-opacity": [
+          "interpolate",
+          [
+            "exponential",
+            2
+          ],
+          [
+            "zoom"
+          ],
+          8,
+          0,
+          12,
+          1
+        ],
+        "line-width": [
+          "match",
+          [
+            "get",
+            "図式コード"
+          ],
+          [
+            8201,
+            8204,
+            9201,
+            9204
+          ],
+          1.4,
+          0.7
+        ]
+      }
+    }
+  ]
+}
