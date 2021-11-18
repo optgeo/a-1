@@ -6,14 +6,14 @@ URLS_PATH = 'urls.txt'
 
 MBTILES_PATH = 'tiles.mbtiles'
 MINZOOM = 8
-MAXZOOM = 11
+MAXZOOM = 17
 
 BASE_URL = 'https://x.optgeo.org/a-1/zxy'
 
 DESIGN = YAML.load <<-EOS
 -
   minzoom: 11
-  maxzoom: 11
+  maxzoom: 17
   glob: #{SRC_DIR}/vector_shp_2500**/*
 EOS
 

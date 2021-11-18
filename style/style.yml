@@ -8,7 +8,7 @@ sources:
     type: vector
     attribution: 国土地理院
     minzoom: 8
-    maxzoom: 11
+    maxzoom: 17
     tiles:
       - https://x.optgeo.org/a-1/zxy/{z}/{x}/{y}.pbf
 layers:
