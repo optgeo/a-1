@@ -72,7 +72,7 @@
       "source": "v",
       "source-layer": "coastline",
       "paint": {
-        "line-color": "rgb(78, 137, 240)",
+        "line-color": "rgb(32, 50, 246)",
         "line-opacity": [
           "interpolate",
           [
@@ -95,7 +95,24 @@
       "source": "v",
       "source-layer": "contour",
       "paint": {
-        "line-color": "rgb(200, 160, 60)",
+        "line-color": [
+          "match",
+          [
+            "get",
+            "図式コード"
+          ],
+          [
+            9201,
+            9204,
+            9211,
+            9212,
+            9214,
+            9221,
+            9224
+          ],
+          "rgb(72, 131, 247)",
+          "rgb(136, 89, 82)"
+        ],
         "line-opacity": [
           "interpolate",
           [
@@ -111,19 +128,27 @@
           1
         ],
         "line-width": [
-          "match",
+          "step",
           [
-            "get",
-            "図式コード"
+            "zoom"
           ],
+          0.7,
+          14,
           [
-            8201,
-            8204,
-            9201,
-            9204
-          ],
-          1.4,
-          0.7
+            "match",
+            [
+              "get",
+              "図式コード"
+            ],
+            [
+              8201,
+              8204,
+              9201,
+              9204
+            ],
+            1.4,
+            0.7
+          ]
         ]
       }
     },
