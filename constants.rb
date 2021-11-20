@@ -32,8 +32,10 @@ Z_CONFIG = YAML.load <<-EOS
   minzoom: 8
 4101:
   layer: line
+  minzoom: 14
 4151:
   layer: line
+  minzoom: 14
 5101:
   layer: building
   minzoom: 13
@@ -46,6 +48,7 @@ Z_CONFIG = YAML.load <<-EOS
   layer: symbol
 7101:
   layer: line
+  minzoom: 15
 7201:
   layer: symbol
 7611:
