@@ -22,11 +22,14 @@ Z_CONFIG = YAML.load <<-EOS
   layer: contour
   minzoom: 15
 100:
-  layer: symbol
+  layer: point
+  minzoom: 16
 2102:
-  layer: symbol
+  layer: point
+  minzoom: 16
 2103:
-  layer: symbol
+  layer: point
+  minzoom: 16
 3101:
   layer: coastline
   minzoom: 8
@@ -43,18 +46,21 @@ Z_CONFIG = YAML.load <<-EOS
   layer: building
   minzoom: 13
 6101:
-  layer: symbol
+  layer: point
+  minzoom: 13
 6111:
-  layer: symbol
+  layer: point
+  minzoom: 14
 7101:
   layer: line
   minzoom: 15
 7201:
-  layer: symbol
+  layer: point
 7611:
-  layer: symbol
+  layer: point
 8103:
-  layer: symbol
+  layer: point
+  minzoom: 16
 8201:
   layer: contour
   minzoom: 10

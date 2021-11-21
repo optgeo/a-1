@@ -36,6 +36,8 @@ rake optimize
 # Attribution
 Data are from Geospatial Information Authority of Japan (GSI).
 
+Sprites are hosted by Geolonia. See also: https://github.com/geolonia/sprites.geolonia.com.
+
 # See Also
 https://github.com/optgeo/63ants/discussions/2
 

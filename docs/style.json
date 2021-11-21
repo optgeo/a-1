@@ -16,6 +16,8 @@
       ]
     }
   },
+  "glyphs": "https://maps.gsi.go.jp/xyz/noto-jp/{fontstack}/{range}.pbf",
+  "sprite": "https://sprites.geolonia.com/basic",
   "layers": [
     {
       "id": "background",
@@ -94,6 +96,29 @@
       "type": "line",
       "source": "v",
       "source-layer": "contour",
+      "filter": [
+        "match",
+        [
+          "get",
+          "図式コード"
+        ],
+        [
+          8201,
+          8204,
+          8211,
+          8214,
+          8811,
+          9201,
+          9024,
+          9211,
+          9212,
+          9214,
+          9221,
+          9224
+        ],
+        true,
+        false
+      ],
       "paint": {
         "line-color": [
           "match",
@@ -149,6 +174,87 @@
             1.4,
             0.7
           ]
+        ]
+      }
+    },
+    {
+      "id": "contour-dash",
+      "type": "line",
+      "source": "v",
+      "source-layer": "contour",
+      "filter": [
+        "match",
+        [
+          "get",
+          "図式コード"
+        ],
+        [
+          8221,
+          8222,
+          8224
+        ],
+        true,
+        false
+      ],
+      "paint": {
+        "line-color": [
+          "match",
+          [
+            "get",
+            "図式コード"
+          ],
+          [
+            9201,
+            9204,
+            9211,
+            9212,
+            9214,
+            9221,
+            9224
+          ],
+          "rgb(72, 131, 247)",
+          "rgb(136, 89, 82)"
+        ],
+        "line-opacity": [
+          "interpolate",
+          [
+            "exponential",
+            2
+          ],
+          [
+            "zoom"
+          ],
+          8,
+          0,
+          12,
+          1
+        ],
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          0.7,
+          14,
+          [
+            "match",
+            [
+              "get",
+              "図式コード"
+            ],
+            [
+              8201,
+              8204,
+              9201,
+              9204
+            ],
+            1.4,
+            0.7
+          ]
+        ],
+        "line-dasharray": [
+          10,
+          2
         ]
       }
     },
@@ -232,6 +338,118 @@
           "rgb(96, 108, 166)",
           "rgb(208, 151, 94)"
         ]
+      }
+    },
+    {
+      "id": "control",
+      "type": "symbol",
+      "source": "v",
+      "source-layer": "point",
+      "filter": [
+        "match",
+        [
+          "get",
+          "図式コード"
+        ],
+        [
+          2102,
+          2103,
+          8103
+        ],
+        true,
+        false
+      ],
+      "layout": {
+        "text-field": [
+          "get",
+          "標高"
+        ],
+        "text-font": [
+          "NotoSansCJKjp-Regular"
+        ],
+        "text-size": 10
+      }
+    },
+    {
+      "id": "symbol",
+      "type": "symbol",
+      "source": "v",
+      "source-layer": "point",
+      "filter": [
+        "match",
+        [
+          "get",
+          "図式コード"
+        ],
+        [
+          6101,
+          6111,
+          7201
+        ],
+        true,
+        false
+      ],
+      "layout": {
+        "icon-image": "communications-tower-15",
+        "text-offset": [
+          0,
+          1
+        ],
+        "text-size": 12,
+        "text-field": [
+          "match",
+          [
+            "get",
+            "図式コード"
+          ],
+          6101,
+          "高塔",
+          6111,
+          "電波塔",
+          7201,
+          "ペンギン",
+          "symbol エラー"
+        ],
+        "text-font": [
+          "NotoSansCJKjp-Regular"
+        ]
+      }
+    },
+    {
+      "id": "annotataion",
+      "type": "symbol",
+      "source": "v",
+      "source-layer": "point",
+      "filter": [
+        "match",
+        [
+          "get",
+          "図式コード"
+        ],
+        [
+          100
+        ],
+        true,
+        false
+      ],
+      "layout": {
+        "text-field": [
+          "get",
+          "名称"
+        ],
+        "text-size": 14,
+        "text-font": [
+          "NotoSansCJKjp-Regular"
+        ],
+        "text-rotate": [
+          "*",
+          -1,
+          [
+            "get",
+            "回転角度"
+          ]
+        ],
+        "text-rotation-alignment": "map"
       }
     }
   ]
