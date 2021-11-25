@@ -56,6 +56,7 @@ Z_CONFIG = YAML.load <<-EOS
   minzoom: 15
 7201:
   layer: point
+  minzoom: 13
 7611:
   layer: point
 8103:

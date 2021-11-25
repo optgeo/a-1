@@ -17,6 +17,7 @@ layout:
     - 0
     - 1 
   text-size: 12
+  text-max-width: 12
   text-field:
     - match
     - - get
@@ -26,7 +27,7 @@ layout:
     - 6111
     - 電波塔
     - 7201
-    - ペンギン
+    - アデリーペンギン繁殖地
     - symbol エラー
   text-font:
     - NotoSansCJKjp-Regular

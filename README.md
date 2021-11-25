@@ -101,7 +101,7 @@ https://github.com/optgeo/63ants/discussions/2
 - 5101: 普通建物
 - 5111: 普通無壁舎
 
-### symbol
+### point
 - 100: 注記 - 名称、名称（読み）、回転角度
 - 2102: 三角点 - 標高（HYOUKOU）
 - 2103: 水準点 - 標高(m)
