@@ -14,6 +14,7 @@ end
 
 desc 'download data'
 task :download do
+  sh "mkdir #{SRC_DIR}" unless File.exist?("#{SRC_DIR}")
   File.foreach(URLS_PATH) {|l|
     url = l.strip
     path = "#{SRC_DIR}/#{url.split('/')[-1]}"
